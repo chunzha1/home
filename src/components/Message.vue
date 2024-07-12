@@ -111,7 +111,7 @@ watch(
 
       .sm {
         margin-left: 6px;
-        font-size: 2rem;
+        font-size: 4rem;
         @media (min-width: 721px) and (max-width: 789px) {
           display: none;
         }
@@ -158,6 +158,7 @@ watch(
       }
 
       .xicon:nth-of-type(2) {
+        font-family: "Pacifico-Regular";
         align-self: flex-end;
       }
     }
