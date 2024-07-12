@@ -38,5 +38,10 @@
     "icon": "Fire",
     "name": "lobechat",
     "link": "https://lobechat.chunzha.tech/"
+  },
+  {
+    "icon": "FileContract",
+    "name": "pairdrop",
+    "link": "http://ip.chunzha.tech:8105/"
   }
 ]
