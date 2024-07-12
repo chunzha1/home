@@ -159,7 +159,9 @@ watch(
         }
       }
 
-      .xicon:nth-of-type(2) {
+  //.xicon:nth-of-type(2)
+          &:nth-of-type(2) {
+{
         font-family: "Pacifico-Regular";
         align-self: flex-end;
       }
