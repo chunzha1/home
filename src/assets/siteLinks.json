@@ -21,7 +21,7 @@
   },
   {
     "icon": "Book",
-    "name": "网址集",
+    "name": "nextchat",
     "link": "https://chat.chunzha.tech/"
   },
   {
@@ -36,7 +36,7 @@
   },
   {
     "icon": "Fire",
-    "name": "Chatbot",
+    "name": "lobechat",
     "link": "https://lobechat.chunzha.tech/"
   }
 ]
