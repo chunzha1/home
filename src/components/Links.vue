@@ -157,6 +157,7 @@ onMounted(() => {
       .name {
         font-size: 1.1rem;
         margin-left: 8px;
+        font-family: "Pacifico-Regular";
       }
       @media (min-width: 720px) and (max-width: 820px) {
         .name {
