@@ -156,14 +156,15 @@ watch(
             font-family: "Pacifico-Regular";
             font-size: 1.3rem; // 第一段落更大
           }
+            &:nth-of-type(1) {
+            font-family: "Pacifico-Regular";
+            font-size: 1.0rem; // 第一段落更大
+          }
         }
       }
 
-  //.xicon:nth-of-type(2)
-          &:nth-of-type(2) {
-{
-        font-family: "Pacifico-Regular";
-        align-self: flex-end;
+  .xicon:nth-of-type(2){
+            align-self: flex-end;
       }
     }
     @media (max-width: 720px) {
