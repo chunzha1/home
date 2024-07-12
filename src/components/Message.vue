@@ -156,7 +156,7 @@ watch(
             font-family: "Pacifico-Regular";
             font-size: 1.3rem; // 第一段落更大
           }
-            &:nth-of-type(1) {
+            &:nth-of-type(2) {
             font-family: "Pacifico-Regular";
             font-size: 1.0rem; // 第一段落更大
           }
