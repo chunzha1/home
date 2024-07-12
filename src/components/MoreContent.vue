@@ -1,5 +1,5 @@
 <template>
-  <div class="more-content">您可在此编写任意内容</div>
+  <div class="more-content">I can write something here.</div>
 </template>
 
 <style lang="scss" scoped>
@@ -10,5 +10,8 @@
   margin-top: 20px;
   width: 100%;
   height: 100%;
+  font-family: "Pacifico-Regular";
+  font-size: 16px; // 可选：设置字体大小
+  font-weight: normal; // 可选：设置字体粗细
 }
 </style>
