@@ -151,8 +151,10 @@ watch(
         transition: opacity 0.2s;
 
         p {
+          font-size: 1.1rem; // 默认大小
           &:nth-of-type(1) {
             font-family: "Pacifico-Regular";
+            font-size: 1.3rem; // 第一段落更大
           }
         }
       }
