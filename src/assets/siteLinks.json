@@ -6,12 +6,12 @@
   },
   {
     "icon": "Cloud",
-    "name": "paste bin",
+    "name": "Paste Bin",
     "link": "https://paste.chunzha.tech/"
   },
   {
     "icon": "CompactDisc",
-    "name": "音乐",
+    "name": "Music",
     "link": "http://ip.chunzha.tech:13000/"
   },
   {
@@ -21,7 +21,7 @@
   },
   {
     "icon": "Book",
-    "name": "nextchat",
+    "name": "Next Chat",
     "link": "https://chat.chunzha.tech/"
   },
   {
@@ -36,12 +36,12 @@
   },
   {
     "icon": "Fire",
-    "name": "lobechat",
+    "name": "Lobe Chat",
     "link": "https://lobechat.chunzha.tech/"
   },
   {
     "icon": "FileContract",
-    "name": "pairdrop",
+    "name": "Pairdrop",
     "link": "http://ip.chunzha.tech:8105/"
   }
 ]
