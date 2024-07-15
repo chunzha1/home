@@ -47,7 +47,10 @@ const hitokotoData = reactive({
 // 获取一言数据
 const getHitokotoData = async () => {
   try {
-    const result = await getHitokoto();
+    const apiKey  = import.meta.env.OPENAI_API_KEY;
+    const apiUrl  = import.meta.env.OPENAI_API_URL;
+
+    const result = await getHitokoto(apiKey, apiUrl);
     hitokotoData.text = result.hitokoto;
     hitokotoData.from = result.from;
   } catch (error) {
