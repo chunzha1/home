@@ -55,6 +55,13 @@
             fill="#ffffff60"
             @click="closeMusicList()"
           />
+
+          <!-- 新增输入框和确认按钮 -->
+          <div class="input-area">
+            <input v-model="inputSongId" placeholder="输入歌单ID" />
+            <button @click="confirmSongId">确认</button>
+          </div>
+          
           <Player
             ref="playerRef"
             :songServer="playerData.server"
@@ -83,6 +90,9 @@ import Player from "@/components/Player.vue";
 import { mainStore } from "@/store";
 const store = mainStore();
 
+// 新增响应式变量
+const inputSongId = ref('');
+
 // 音量条数据
 const volumeShow = ref(false);
 const volumeNum = ref(store.musicVolume ? store.musicVolume : 0.7);
@@ -95,7 +105,17 @@ const playerData = reactive({
   type: import.meta.env.VITE_SONG_TYPE,
   id: import.meta.env.VITE_SONG_ID,
 });
-
+// 新增确认函数
+const confirmSongId = () => {
+  if (inputSongId.value) {
+    playerData.id = inputSongId.value;
+    // 重新加载播放器
+    if (playerRef.value) {
+      // 假设Player组件有一个reload方法来重新加载歌单
+      playerRef.value.reload(playerData.id);
+    }
+  }
+};
 // 开启播放列表
 const openMusicList = () => {
   musicListShow.value = true;
@@ -289,6 +309,36 @@ watch(
         transform: scale(0.95);
       }
     }
+
+    // 新增输入区域样式
+    .input-area {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      display: flex;
+      align-items: center;
+        
+      input {
+          padding: 5px;
+          margin-right: 5px;
+          border-radius: 4px;
+          border: 1px solid #ffffff40;
+          background: #ffffff20;
+          color: #fff;
+            }
+       button {
+              padding: 5px 10px;
+              border-radius: 4px;
+              border: none;
+              background: #ffffff40;
+              color: #fff;
+              cursor: pointer;
+              
+              &:hover {
+                background: #ffffff60;
+                }    
+              }
+            }
   }
 }
 
