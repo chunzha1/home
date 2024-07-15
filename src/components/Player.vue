@@ -112,6 +112,40 @@ onMounted(() => {
   });
 });
 
+
+// 重新加载播放列表
+const reload = async (newId) => {
+  try {
+    const res = await getPlayerList(props.songServer, props.songType, newId);
+    playList.value = res;
+    store.musicIsOk = true;
+    console.log("音乐列表重新加载完成");
+    
+    // 重置播放器
+    nextTick(() => {
+      if (player.value) {
+        player.value.aplayer.list.clear();
+        player.value.aplayer.list.add(playList.value);
+        player.value.aplayer.list.switch(0);
+        player.value.aplayer.play();
+      }
+    });
+  } catch (err) {
+    console.error(err);
+    store.musicIsOk = false;
+    ElMessage({
+      message: "播放列表重新加载失败",
+      grouping: true,
+      icon: h(PlayWrong, {
+        theme: "filled",
+        fill: "#efefef",
+      }),
+    });
+  }
+};
+
+  
+  
 // 播放
 const onPlay = () => {
   console.log("播放");
@@ -197,7 +231,7 @@ const loadMusicError = () => {
 };
 
 // 暴露子组件方法
-defineExpose({ playToggle, changeVolume, changeSong, toggleList });
+defineExpose({ playToggle, changeVolume, changeSong, toggleList, reload  });
 </script>
 
 <style lang="scss" scoped>
