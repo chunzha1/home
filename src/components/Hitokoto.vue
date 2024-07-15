@@ -50,7 +50,8 @@ const getHitokotoData = async () => {
     const apiKey  = import.meta.env.OPENAI_API_KEY;
     const apiUrl  = import.meta.env.OPENAI_API_URL;
 
-    const result = await getHitokoto(apiKey, apiUrl);
+    // const result = await getHitokoto(apiKey, apiUrl);
+    const result = await getHitokoto();
     hitokotoData.text = result.hitokoto;
     hitokotoData.from = result.from;
   } catch (error) {
