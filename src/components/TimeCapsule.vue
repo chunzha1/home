@@ -11,6 +11,10 @@
         <div class="item-title">
           <span>{{ workStatus.message }}</span>
         </div>
+        <el-progress 
+          :percentage="workStatus.percentage" 
+          :format="percentageFormat"
+          :stroke-width="
       </div> 
       
       <div v-for="(item, tag, index) in timeData" :key="index" class="capsule-item">
@@ -47,7 +51,11 @@ const startDate = ref(import.meta.env.VITE_SITE_START);
 const startDateText = ref(null);
 const timeInterval = ref(null);
 const workStatus = ref(getTimeUntilOffWork());
+const percentageFormat = (percentage) => {
+  return `${percentage.toFixed(2)}%`;
+};
 
+  
 onMounted(() => {
   timeInterval.value = setInterval(() => {
     timeData.value = getTimeCapsule();
@@ -109,6 +117,7 @@ onBeforeUnmount(() => {
           justify-content: center;
           font-size: 1.3rem;
           color: #409EFF; // 使用 Element Plus 的主色调，你可以根据需要调整
+          margin-bottom: 0.5rem;
         }
       }
     }
