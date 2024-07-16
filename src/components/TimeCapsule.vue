@@ -4,7 +4,14 @@
       <hourglass-full theme="two-tone" size="24" :fill="['#efefef', '#00000020']" />
       <span>时光胶囊</span>
     </div>
+    
     <div v-if="timeData" class="all-capsule">
+      <!-- 添加这个新的 div 来显示工作状态 -->
+      <div class="capsule-item work-status">
+        <div class="item-title">
+          <span>{{ workStatus.message }}</span>
+      </div>
+        
       <div v-for="(item, tag, index) in timeData" :key="index" class="capsule-item">
         <div class="item-title">
           <span class="percentage">
@@ -29,6 +36,7 @@
 <script setup>
 import { HourglassFull } from "@icon-park/vue-next";
 import { getTimeCapsule, siteDateStatistics } from "@/utils/getTime.js";
+import { getTimeUntilOffWork } from "@/utils/getTime.js";
 import { mainStore } from "@/store";
 const store = mainStore();
 
@@ -37,11 +45,13 @@ const timeData = ref(getTimeCapsule());
 const startDate = ref(import.meta.env.VITE_SITE_START);
 const startDateText = ref(null);
 const timeInterval = ref(null);
+const workStatus = ref(getTimeUntilOffWork());
 
 onMounted(() => {
   timeInterval.value = setInterval(() => {
     timeData.value = getTimeCapsule();
     if (startDate.value) startDateText.value = siteDateStatistics(new Date(startDate.value));
+    workStatus.value = getTimeUntilOffWork(); // 添加这行
   }, 1000);
 });
 
@@ -90,6 +100,14 @@ onBeforeUnmount(() => {
           justify-content: center;
           opacity: 0.8;
           font-size: 0.85rem;
+        }
+      }
+      &.work-status {
+        margin-bottom: 1.5rem;
+        .item-title {
+          justify-content: center;
+          font-size: 1rem;
+          color: #409EFF; // 使用 Element Plus 的主色调，你可以根据需要调整
         }
       }
     }
