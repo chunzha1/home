@@ -114,14 +114,14 @@ export const getTimeUntilOffWork = () => {
   
   // 计算工作进度百分比
   const elapsedWorkSeconds = now.diff(workStartTime, 'second');
-  const percentage = Math.min(100, (elapsedWorkSeconds / totalWorkSeconds) * 100);
+  const percentage = Math.min(100, ((elapsedWorkSeconds / totalWorkSeconds) * 100).toFixed(2));
   const passedHours = (elapsedWorkSeconds / 3600).toFixed(2);
   const remainingHours = ((totalWorkSeconds - elapsedWorkSeconds) / 3600).toFixed(2);
   
   return {
     status: "atWork",
     message: `距离下班还有 ${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`,
-    percentage: percentage,
+    percentage: parseFloat(percentage),
     passed: passedHours,
     remaining: remainingHours
   };
