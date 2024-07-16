@@ -7,15 +7,23 @@
     <div v-if="timeData" class="all-capsule">
 
       <!-- 添加这个新的 div 来显示工作状态 -->
-      <div class="capsule-item work-status">
+     <div class="capsule-item work-status">
         <div class="item-title">
-          <span>{{ workStatus.message }}</span>
+          <span class="percentage">
+            今日已工作
+            <strong>{{ workStatus.passed }}</strong>
+            小时
+          </span>
+          <span class="remaining">
+            剩余 {{ workStatus.remaining }} 小时
+          </span>
         </div>
         <el-progress 
-          :percentage="workStatus.percentage" 
-          :format="percentageFormat"
-          :stroke-width="20"
-          />
+          :text-inside="true" 
+          :stroke-width="20" 
+          :percentage="parseFloat(workStatus.percentage)" 
+        />
+        <div class="message">{{ workStatus.message }}</div>
       </div> 
       
       <div v-for="(item, tag, index) in timeData" :key="index" class="capsule-item">
@@ -112,13 +120,26 @@ onBeforeUnmount(() => {
           font-size: 0.85rem;
         }
       }
-      &.work-status {
+     &.work-status {
         margin-bottom: 1.5rem;
         .item-title {
-          justify-content: center;
-          font-size: 1.3rem;
-          color: #409EFF; // 使用 Element Plus 的主色调，你可以根据需要调整
-          margin-bottom: 0.5rem;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-between;
+          margin: 1rem 0rem 0.5rem 0rem;
+          font-size: 0.95rem;
+          .remaining {
+            opacity: 0.6;
+            font-size: 0.85rem;
+            font-style: oblique;
+          }
+        }
+        .message {
+          text-align: center;
+          margin-top: 0.5rem;
+          font-size: 1.1rem;
+          color: #409EFF;
         }
       }
     }
