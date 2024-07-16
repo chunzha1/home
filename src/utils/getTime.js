@@ -78,15 +78,16 @@ export const getTimeUntilOffWork = () => {
   
   // 如果是周末，直接返回"周末愉快"
   if (currentDay === 0 || currentDay === 6) {
-    return { status: "weekend", message: "周末愉快!" };
+    return { status: "weekend", message: "周末愉快!", percentage: 100 };
   }
 
   const workStartTime = now.set('hour', 9).set('minute', 0).set('second', 0);
   const workEndTime = now.set('hour', 18).set('minute', 30).set('second', 0);
+  const totalWorkSeconds = workEndTime.diff(workStartTime, 'second');
 
  // 如果当前时间在下班时间之后，显示"已经下班"
   if (now.isAfter(workEndTime)) {
-    return { status: "afterWork", message: "已经下班啦!" };
+    return { status: "afterWork", message: "已经下班啦!", percentage: 100 };
   }
 
   // 如果当前时间在上班时间之前，计算到上班的时间
@@ -96,9 +97,10 @@ export const getTimeUntilOffWork = () => {
     const minutes = Math.floor((timeDiff % 3600) / 60);
     const seconds = timeDiff % 60;
 
-    return {
+   return {
       status: "beforeWork",
-      message: `距离上班还有 ${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`
+      message: `距离上班还有 ${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`,
+      percentage: 0
     };
   }
 
@@ -107,10 +109,15 @@ export const getTimeUntilOffWork = () => {
   const hours = Math.floor(timeDiff / 3600);
   const minutes = Math.floor((timeDiff % 3600) / 60);
   const seconds = timeDiff % 60;
-
+  
+  // 计算工作进度百分比
+  const elapsedWorkSeconds = now.diff(workStartTime, 'second');
+  const percentage = Math.min(100, (elapsedWorkSeconds / totalWorkSeconds) * 100);
+  
   return {
     status: "atWork",
-    message: `距离下班还有 ${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`
+    message: `距离下班还有 ${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`,
+    percentage: percentage
   };
 };
 
