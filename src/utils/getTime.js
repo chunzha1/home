@@ -71,6 +71,51 @@ export const getTimeCapsule = () => {
   };
 };
 
+// 下班倒计时
+export const getTimeUntilOffWork = () => {
+  const now = dayjs();
+  const currentDay = now.getDay();
+  
+  // 如果是周末，直接返回"周末愉快"
+  if (currentDay === 0 || currentDay === 6) {
+    return { status: "weekend", message: "周末愉快!" };
+  }
+
+  const workStartTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 9, 0, 0); // 上班时间 9:00
+  const workEndTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 18, 30, 0); // 下班时间 18:00
+
+  // 如果当前时间在下班时间之后，显示"已经下班"
+  if (now >= workEndTime) {
+    return { status: "afterWork", message: "已经下班啦!" };
+  }
+
+  // 如果当前时间在上班时间之前，计算到上班的时间
+  if (now < workStartTime) {
+    const timeDiff = workStartTime - now;
+    const hours = Math.floor(timeDiff / (1000 * 60 * 60));
+    const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+
+    return {
+      status: "beforeWork",
+      message: `距离上班还有 ${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`
+    };
+  }
+
+  // 如果是在工作时间，计算到下班的时间
+  const timeDiff = workEndTime - now;
+  const hours = Math.floor(timeDiff / (1000 * 60 * 60));
+  const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+
+  return {
+    status: "atWork",
+    message: `距离下班还有 ${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`
+  };
+};
+
+
+
 // 欢迎提示
 export const helloInit = () => {
   const hour = new Date().getHours();
