@@ -4,14 +4,15 @@
       <hourglass-full theme="two-tone" size="24" :fill="['#efefef', '#00000020']" />
       <span>时光胶囊</span>
     </div>
-    
     <div v-if="timeData" class="all-capsule">
+
       <!-- 添加这个新的 div 来显示工作状态 -->
       <div class="capsule-item work-status">
         <div class="item-title">
           <span>{{ workStatus.message }}</span>
-      </div>
-        
+        </div>
+      </div> 
+      
       <div v-for="(item, tag, index) in timeData" :key="index" class="capsule-item">
         <div class="item-title">
           <span class="percentage">
