@@ -107,7 +107,7 @@ onBeforeUnmount(() => {
         margin-bottom: 1.5rem;
         .item-title {
           justify-content: center;
-          font-size: 1rem;
+          font-size: 1.3rem;
           color: #409EFF; // 使用 Element Plus 的主色调，你可以根据需要调整
         }
       }
