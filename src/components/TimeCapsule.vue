@@ -15,7 +15,7 @@
           :percentage="workStatus.percentage" 
           :format="percentageFormat"
           :stroke-width="20"
-          >
+          />
       </div> 
       
       <div v-for="(item, tag, index) in timeData" :key="index" class="capsule-item">
