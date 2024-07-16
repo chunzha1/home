@@ -14,7 +14,8 @@
         <el-progress 
           :percentage="workStatus.percentage" 
           :format="percentageFormat"
-          :stroke-width="
+          :stroke-width="20"
+          >
       </div> 
       
       <div v-for="(item, tag, index) in timeData" :key="index" class="capsule-item">
