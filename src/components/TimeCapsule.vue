@@ -139,7 +139,9 @@ onBeforeUnmount(() => {
           text-align: center;
           margin-top: 0.5rem;
           font-size: 1.1rem;
-          color: #409EFF;
+          color: #D3D3D3; // 改成浅灰色
+
+          //color: #409EFF;
         }
       }
     }
