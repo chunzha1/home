@@ -147,7 +147,7 @@ onBeforeUnmount(() => {
       height: 100%;
       padding: 0 0.75rem;
       display: flex;
-      flex-direction: column;//row
+      flex-direction: row;//row
       justify-content: center;
       align-items: center;
     }
