@@ -30,19 +30,21 @@
       <Transition name="fade" mode="out-in">
         <Footer class="f-ter" v-show="!store.backgroundShow && !store.setOpenState" />
       </Transition>
+        
+      <!-- 添加按钮 -->
+      <button @click="openFloatingWindow" class="floating-button">
+        打开浮动窗口
+      </button>
+      <!-- 添加浮动窗口组件 -->
+      <FloatingWindow 
+        v-if="showFloatingWindow" 
+        @close="closeFloatingWindow"
+        :url="floatingWindowUrl"
+      />
+      
     </main>
   </Transition>
-  
-  <!-- 添加按钮 -->
-  <button @click="openFloatingWindow" class="floating-button">
-    打开浮动窗口
-  </button>
-  <!-- 添加浮动窗口组件 -->
-  <FloatingWindow 
-    v-if="showFloatingWindow" 
-    @close="closeFloatingWindow"
-    :url="floatingWindowUrl"
-  />
+
   
 </template>
 
