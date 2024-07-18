@@ -8,20 +8,19 @@
     <main id="main" v-if="store.imgLoadStatus">
       <div class="container" v-show="!store.backgroundShow">
         <section class="all" v-show="!store.setOpenState">
-         
           <MainRight v-show="!store.boxOpenState" />
-           <MainLeft  />
+          <MainLeft  />
           <Box v-show="store.boxOpenState" />
         </section>
         <section class="more" v-show="store.setOpenState" @click="store.setOpenState = false">
           <MoreSet />
         </section>
         <!-- 新的浮动按钮部分 -->
-        <section class="floating-section" v-show="!store.setOpenState">
+        <div class="floating-button-wrapper" v-show="!store.setOpenState">
           <button @click="openFloatingWindow" class="floating-button">
             Shooting Trump
           </button>
-      </section>
+        </div>
       </div>
       <!-- 移动端菜单按钮 -->
       <Icon
@@ -198,24 +197,12 @@ onBeforeUnmount(() => {
       padding: 0 2vw;
     }
   
-    .floating-section {
+    .floating-button-wrapper {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: #00000080;
-      backdrop-filter: blur(20px);
+      bottom: 20px;
+      right: 20px;
       z-index: 2;
-      animation: fade 0.5s;
-      }
-    
-    .floating-section {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      pointer-events: none; // 允许点击穿透到下层元素
-      }
+    }
 
     .floating-button {
       padding: 10px 20px;
