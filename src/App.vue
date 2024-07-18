@@ -12,12 +12,6 @@
           <MainLeft  />
           <Box v-show="store.boxOpenState" />
         </section>
-        <!-- 新的浮动按钮部分 -->
-        <section class="floating-button-wrapper" v-show="!store.setOpenState">
-          <button @click="openFloatingWindow" class="floating-button">
-            Shooting Trump
-          </button>
-        </section>
         <section class="more" v-show="store.setOpenState" @click="store.setOpenState = false">
           <MoreSet />
         </section>
@@ -35,15 +29,6 @@
       <Transition name="fade" mode="out-in">
         <Footer class="f-ter" v-show="!store.backgroundShow && !store.setOpenState" />
       </Transition>
-        
-
-      <!-- 添加浮动窗口组件 -->
-      <FloatingWindow 
-        v-if="showFloatingWindow" 
-        @close="closeFloatingWindow"
-        :url="floatingWindowUrl"
-      />
-      
     </main>
   </Transition>
 
@@ -64,20 +49,9 @@ import Box from "@/views/Box/index.vue";
 import MoreSet from "@/views/MoreSet/index.vue";
 import cursorInit from "@/utils/cursor.js";
 import config from "@/../package.json";
-import FloatingWindow from '@/components/FloatingWindow.vue';
   
 const store = mainStore();
- // FloatWindows
-  const showFloatingWindow = ref(false);
-  const floatingWindowUrl = ref('https://pcd.chunzha.tech/shot-game/shooter');
-  
-  const openFloatingWindow = () => {
-    showFloatingWindow.value = true;
-  };
-  
-  const closeFloatingWindow = () => {
-    showFloatingWindow.value = false;
-  };
+
 // 页面宽度
 const getWidth = () => {
   store.setInnerWidth(window.innerWidth);
@@ -196,34 +170,6 @@ onBeforeUnmount(() => {
     @media (max-width: 1200px) {
       padding: 0 2vw;
     }
-  
-    .floating-button-wrapper {
-      position: relative;
-      top: 20px;
-      left: 20px;
-      z-index: 2;
-    }
-
-    .floating-button {
-      padding: 10px 20px;
-      background-color: rgba(255, 255, 255, 0.2);
-      color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 16px;
-      transition: all 0.3s ease;
-      pointer-events: auto; // 确保按钮可以被点击
-      
-      &:hover {
-        background-color: rgba(255, 255, 255, 0.3);
-      }
-      
-      &:active {
-        transform: scale(0.95);
-      }
-      }
-  
   }
   .menu {
     position: absolute;
