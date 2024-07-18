@@ -38,13 +38,21 @@ defineEmits(['close']);
   padding: 10px;
   display: flex;
   justify-content: flex-end;
+  background-color: #f0f0f0; /* 添加背景色 */
+  border-bottom: 1px solid #ddd; /* 添加底部边框 */
 }
 
 .close-button {
-  background: none;
+  background-color: #ff4d4d; /* 红色背景 */
+  color: white; /* 白色文字 */
   border: none;
   font-size: 20px;
   cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  z-index: 1002; /* 确保比floating-window的z-index高 */
+  position: relative; /* 使z-index生效 */
 }
 
 .floating-window-content {
