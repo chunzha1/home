@@ -9,8 +9,8 @@
       <div class="container" v-show="!store.backgroundShow">
         <section class="all" v-show="!store.setOpenState">
          
-          <MainRight v-show="!store.boxOpenState" />
-           <MainLeft />
+          <MainLeft v-show="!store.boxOpenState" />
+           <MainRight  />
           <Box v-show="store.boxOpenState" />
         </section>
         <section class="more" v-show="store.setOpenState" @click="store.setOpenState = false">
