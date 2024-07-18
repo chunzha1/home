@@ -67,7 +67,7 @@ import FloatingWindow from '@/components/FloatingWindow.vue';
 const store = mainStore();
  // FloatWindows
   const showFloatingWindow = ref(false);
-  const floatingWindowUrl = ref('https://mzh.li');
+  const floatingWindowUrl = ref('https://pcd.chunzha.tech/shot-game/shooter');
   
   const openFloatingWindow = () => {
     showFloatingWindow.value = true;
@@ -279,15 +279,40 @@ onBeforeUnmount(() => {
   }
   .floating-button {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
+  bottom: calc(5% + 20px); // 距离底部5%加20px
+  right: calc(5% + 20px); // 距离右侧5%加20px
   padding: 10px 20px;
-  background-color: #007bff;
+  background-color: rgba(0, 0, 0, 0.6); // 半透明黑色背景
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 20px; // 圆角按钮
   cursor: pointer;
-  z-index: 1000;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px); // 毛玻璃效果
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  //z-index: 1000;
+  
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    transform: translateY(-2px);
+    }
+  
+  &:active {
+    transform: translateY(0);
+    }
+  
+  @media (max-width: 768px) {
+    bottom: 20px;
+    right: 20px;
+    font-size: 12px;
+    padding: 8px 16px;
+    }
+
+  @media (min-width: 1200px) {
+    bottom: calc(10% + 20px);
+    right: calc(10% + 20px);
+    }
   }
 }
 </style>
