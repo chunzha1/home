@@ -200,7 +200,7 @@ onBeforeUnmount(() => {
     .floating-button-wrapper {
       position: fixed;
       bottom: 20px;
-      right: 20px;
+      right: 220px;
       z-index: 2;
     }
 
