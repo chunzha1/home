@@ -67,7 +67,7 @@ import FloatingWindow from '@/components/FloatingWindow.vue';
 const store = mainStore();
  // FloatWindows
   const showFloatingWindow = ref(false);
-  const floatingWindowUrl = ref('https://linux.do');
+  const floatingWindowUrl = ref('https://mzh.li');
   
   const openFloatingWindow = () => {
     showFloatingWindow.value = true;
