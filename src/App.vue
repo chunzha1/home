@@ -7,16 +7,17 @@
   <Transition name="fade" mode="out-in">
     <main id="main" v-if="store.imgLoadStatus">
       <div class="container" v-show="!store.backgroundShow">
-        <section class="all" v-show="!store.setOpenState">
-          <MainRight v-show="!store.boxOpenState" />
-          <MainLeft  />
-          <Box v-show="store.boxOpenState" />
-        </section>
         <!-- 新的浮动按钮部分 -->
         <section class="floating-button-wrapper" v-show="!store.setOpenState">
           <button @click="openFloatingWindow" class="floating-button">
             Shooting Trump
           </button>
+        </section>
+        
+        <section class="all" v-show="!store.setOpenState">
+          <MainRight v-show="!store.boxOpenState" />
+          <MainLeft  />
+          <Box v-show="store.boxOpenState" />
         </section>
         <section class="more" v-show="store.setOpenState" @click="store.setOpenState = false">
           <MoreSet />
