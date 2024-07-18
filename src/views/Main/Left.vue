@@ -1,7 +1,6 @@
 <template>
   <div :class="store.mobileOpenState ? 'left hidden' : 'left'">
     <Message />
-    <SocialLinks />
     <!-- 新的浮动按钮部分 -->
     <div class="floating-button-wrapper">
       <button @click="openFloatingWindow" class="floating-button">
@@ -14,6 +13,7 @@
       @close="closeFloatingWindow"
       :url="floatingWindowUrl"
     />
+    <SocialLinks />
   </div>
 </template>
 
