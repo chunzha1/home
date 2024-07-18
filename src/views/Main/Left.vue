@@ -28,7 +28,7 @@ const store = mainStore();
 
 // FloatWindows
 const showFloatingWindow = ref(false);
-const floatingWindowUrl = ref('https://pcd.chunzha.tech/shot-game/shooter');
+const floatingWindowUrl = ref('https://mzh.li');
 
 const openFloatingWindow = () => {
   showFloatingWindow.value = true;
