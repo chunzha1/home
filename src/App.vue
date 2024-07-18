@@ -10,10 +10,15 @@
         <!-- 新的浮动按钮部分 -->
         <section class="floating-button-wrapper" v-show="!store.setOpenState">
           <button @click="openFloatingWindow" class="floating-button">
-            Shooting Trump
+            {{ inputUrl ? 'Visit URL' : 'Shooting Trump' }}
           </button>
+          <input 
+            v-model="inputUrl" 
+            placeholder="Enter URL here" 
+            class="url-input"
+          />
         </section>
-        
+
         <section class="all" v-show="!store.setOpenState">
           <MainRight v-show="!store.boxOpenState" />
           <MainLeft  />
@@ -71,8 +76,14 @@ const store = mainStore();
  // FloatWindows
   const showFloatingWindow = ref(false);
   const floatingWindowUrl = ref('https://pcd.chunzha.tech/shot-game/shooter');
-  
-  const openFloatingWindow = () => {
+  const inputUrl = ref('');
+
+const openFloatingWindow = () => {
+  if (inputUrl.value) {
+      floatingWindowUrl.value = inputUrl.value;
+    } else {
+      floatingWindowUrl.value = 'https://pcd.chunzha.tech/shot-game/shooter';
+    }
     showFloatingWindow.value = true;
   };
   
@@ -223,6 +234,23 @@ onBeforeUnmount(() => {
       &:active {
         transform: scale(0.95);
       }
+      }
+    .url-input {
+        margin-left: 10px;
+        padding: 5px 10px;
+        border: none;
+        border-radius: 6px;
+        background-color: rgba(255, 255, 255, 0.2);
+        color: white;
+        
+        &::placeholder {
+          color: rgba(255, 255, 255, 0.7);
+        }
+        
+        &:focus {
+          outline: none;
+          background-color: rgba(255, 255, 255, 0.3);
+        }
       }
   
   }
