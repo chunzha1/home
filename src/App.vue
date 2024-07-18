@@ -74,13 +74,20 @@ import FloatingWindow from '@/components/FloatingWindow.vue';
   
 const store = mainStore();
  // FloatWindows
-  const showFloatingWindow = ref(false);
-  const floatingWindowUrl = ref('https://pcd.chunzha.tech/shot-game/shooter');
-  const inputUrl = ref('');
+const showFloatingWindow = ref(false);
+const floatingWindowUrl = ref('https://pcd.chunzha.tech/shot-game/shooter');
+const inputUrl = ref('');
 
+const ensureHttps = (url) => {
+  if (url && !/^https?:\/\//i.test(url)) {
+    return `https://${url}`;
+  }
+  return url;
+};
+  
 const openFloatingWindow = () => {
   if (inputUrl.value) {
-      floatingWindowUrl.value = inputUrl.value;
+      floatingWindowUrl.value = ensureHttps(inputUrl.value);
     } else {
       floatingWindowUrl.value = 'https://pcd.chunzha.tech/shot-game/shooter';
     }
