@@ -279,7 +279,7 @@ onBeforeUnmount(() => {
   }
   .floating-button {
   position: fixed;
-  bottom: calc(5% + 14px); // 距离底部5%加20px
+  bottom: calc(3% + 14px); // 距离底部5%加20px
   right: calc(5% + 20px); // 距离右侧5%加20px
   padding: 10px 20px;
   background-color: rgba(0, 0, 0, 0.6); // 半透明黑色背景
