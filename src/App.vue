@@ -16,6 +16,10 @@
         <section class="more" v-show="store.setOpenState" @click="store.setOpenState = false">
           <MoreSet />
         </section>
+        <!-- 添加按钮 -->
+          <button @click="openFloatingWindow" class="floating-button">
+            Shooting Trump
+          </button>
       </div>
       <!-- 移动端菜单按钮 -->
       <Icon
@@ -31,10 +35,7 @@
         <Footer class="f-ter" v-show="!store.backgroundShow && !store.setOpenState" />
       </Transition>
         
-      <!-- 添加按钮 -->
-      <button @click="openFloatingWindow" class="floating-button">
-        Shooting Trump
-      </button>
+
       <!-- 添加浮动窗口组件 -->
       <FloatingWindow 
         v-if="showFloatingWindow" 
@@ -165,6 +166,8 @@ onBeforeUnmount(() => {
   animation: fade-blur-main-in 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
   animation-delay: 0.5s;
   .container {
+    position: relative; // 添加这行,使得内部绝对定位的元素相对于container定位
+
     width: 100%;
     height: 100vh;
     margin: 0 auto;
@@ -192,6 +195,45 @@ onBeforeUnmount(() => {
     @media (max-width: 1200px) {
       padding: 0 2vw;
     }
+
+    .floating-button {
+      position: absolute;
+      bottom: 10px; // 固定距离底部20px
+      right: 20px; // 固定距离右侧20px
+      padding: 10px 20px;
+      background-color: rgba(0, 0, 0, 0.6); // 半透明黑色背景
+      color: white;
+      border: none;
+      border-radius: 20px; // 圆角按钮
+      cursor: pointer;
+      font-size: 14px;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(5px); // 毛玻璃效果
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+      //z-index: 1000;
+      
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+        transform: translateY(-2px);
+        }
+      
+      &:active {
+        transform: translateY(0);
+        }
+      
+      @media (max-width: 768px) {
+        bottom: 20px;
+        right: 20px;
+        font-size: 12px;
+        padding: 8px 16px;
+        }
+    
+      @media (min-width: 1200px) {
+        bottom: calc(10% + 20px);
+        right: calc(10% + 20px);
+        }
+      }
+  
   }
   .menu {
     position: absolute;
@@ -277,42 +319,6 @@ onBeforeUnmount(() => {
       overflow-y: hidden;
     }
   }
-  .floating-button {
-  position: fixed;
-  bottom: 10px; // 固定距离底部20px
-  right: 20px; // 固定距离右侧20px
-  padding: 10px 20px;
-  background-color: rgba(0, 0, 0, 0.6); // 半透明黑色背景
-  color: white;
-  border: none;
-  border-radius: 20px; // 圆角按钮
-  cursor: pointer;
-  font-size: 14px;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(5px); // 毛玻璃效果
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-  //z-index: 1000;
-  
-  &:hover {
-    background-color: rgba(0, 0, 0, 0.8);
-    transform: translateY(-2px);
-    }
-  
-  &:active {
-    transform: translateY(0);
-    }
-  
-  @media (max-width: 768px) {
-    bottom: 20px;
-    right: 20px;
-    font-size: 12px;
-    padding: 8px 16px;
-    }
 
-  @media (min-width: 1200px) {
-    bottom: calc(10% + 20px);
-    right: calc(10% + 20px);
-    }
-  }
 }
 </style>
