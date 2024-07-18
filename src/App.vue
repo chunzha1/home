@@ -65,7 +65,17 @@ import config from "@/../package.json";
 import FloatingWindow from '@/components/FloatingWindow.vue';
   
 const store = mainStore();
-
+ // FloatWindows
+  const showFloatingWindow = ref(false);
+  const floatingWindowUrl = ref('https://linux.do');
+  
+  const openFloatingWindow = () => {
+    showFloatingWindow.value = true;
+  };
+  
+  const closeFloatingWindow = () => {
+    showFloatingWindow.value = false;
+  };
 // 页面宽度
 const getWidth = () => {
   store.setInnerWidth(window.innerWidth);
@@ -121,17 +131,6 @@ onMounted(() => {
   getWidth();
   window.addEventListener("resize", getWidth);
   
-  // FloatWindows
-  const showFloatingWindow = ref(false);
-  const floatingWindowUrl = ref('https://linux.do');
-  
-  const openFloatingWindow = () => {
-    showFloatingWindow.value = true;
-  };
-  
-  const closeFloatingWindow = () => {
-    showFloatingWindow.value = false;
-  };
   
   // 控制台输出
   const styleTitle1 = "font-size: 20px;font-weight: 600;color: rgb(244,167,89);";
