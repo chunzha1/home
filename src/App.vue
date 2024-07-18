@@ -12,15 +12,15 @@
           <MainLeft  />
           <Box v-show="store.boxOpenState" />
         </section>
-        <section class="more" v-show="store.setOpenState" @click="store.setOpenState = false">
-          <MoreSet />
-        </section>
         <!-- 新的浮动按钮部分 -->
-        <div class="floating-button-wrapper" v-show="!store.setOpenState">
+        <section class="floating-button-wrapper" v-show="!store.setOpenState">
           <button @click="openFloatingWindow" class="floating-button">
             Shooting Trump
           </button>
-        </div>
+        </section>
+        <section class="more" v-show="store.setOpenState" @click="store.setOpenState = false">
+          <MoreSet />
+        </section>
       </div>
       <!-- 移动端菜单按钮 -->
       <Icon
