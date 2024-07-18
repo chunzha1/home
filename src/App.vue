@@ -244,12 +244,14 @@ onBeforeUnmount(() => {
       }
     .url-input {
         margin-left: 10px;
-        padding: 5px 10px;
+        padding: 10px 20px; // 调整padding使高度与按钮一致
         border: none;
         border-radius: 6px;
         background-color: rgba(255, 255, 255, 0.2);
         color: white;
-        
+        font-size: 16px; // 保持与按钮字体大小一致
+        line-height: 1; // 确保文本垂直居中
+  
         &::placeholder {
           color: rgba(255, 255, 255, 0.7);
         }
