@@ -32,6 +32,18 @@
       </Transition>
     </main>
   </Transition>
+  
+  <!-- 添加按钮 -->
+  <button @click="openFloatingWindow" class="floating-button">
+    打开浮动窗口
+  </button>
+  <!-- 添加浮动窗口组件 -->
+  <FloatingWindow 
+    v-if="showFloatingWindow" 
+    @close="closeFloatingWindow"
+    :url="floatingWindowUrl"
+  />
+  
 </template>
 
 <script setup>
@@ -48,7 +60,8 @@ import Box from "@/views/Box/index.vue";
 import MoreSet from "@/views/MoreSet/index.vue";
 import cursorInit from "@/utils/cursor.js";
 import config from "@/../package.json";
-
+import FloatingWindow from '@/components/FloatingWindow.vue';
+  
 const store = mainStore();
 
 // 页面宽度
@@ -105,7 +118,19 @@ onMounted(() => {
   // 监听当前页面宽度
   getWidth();
   window.addEventListener("resize", getWidth);
-
+  
+  // FloatWindows
+  const showFloatingWindow = ref(false);
+  const floatingWindowUrl = ref('https://linux.do');
+  
+  const openFloatingWindow = () => {
+    showFloatingWindow.value = true;
+  };
+  
+  const closeFloatingWindow = () => {
+    showFloatingWindow.value = false;
+  };
+  
   // 控制台输出
   const styleTitle1 = "font-size: 20px;font-weight: 600;color: rgb(244,167,89);";
   const styleTitle2 = "font-size:12px;color: rgb(244,167,89);";
@@ -250,6 +275,18 @@ onBeforeUnmount(() => {
     @media (min-height: 721px) {
       overflow-y: hidden;
     }
+  }
+  .floating-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 1000;
   }
 }
 </style>
