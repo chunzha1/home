@@ -16,10 +16,12 @@
         <section class="more" v-show="store.setOpenState" @click="store.setOpenState = false">
           <MoreSet />
         </section>
-        <!-- 添加按钮 -->
+        <!-- 新的浮动按钮部分 -->
+        <section class="floating-section" v-show="!store.setOpenState">
           <button @click="openFloatingWindow" class="floating-button">
             Shooting Trump
           </button>
+      </section>
       </div>
       <!-- 移动端菜单按钮 -->
       <Icon
@@ -195,43 +197,44 @@ onBeforeUnmount(() => {
     @media (max-width: 1200px) {
       padding: 0 2vw;
     }
+  
+    .floating-section {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #00000080;
+      backdrop-filter: blur(20px);
+      z-index: 2;
+      animation: fade 0.5s;
+      }
+    
+    .floating-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      pointer-events: none; // 允许点击穿透到下层元素
+      }
 
     .floating-button {
-      position: absolute;
-      bottom: 10px; // 固定距离底部20px
-      right: 20px; // 固定距离右侧20px
       padding: 10px 20px;
-      background-color: rgba(0, 0, 0, 0.6); // 半透明黑色背景
+      background-color: rgba(255, 255, 255, 0.2);
       color: white;
       border: none;
-      border-radius: 20px; // 圆角按钮
+      border-radius: 6px;
       cursor: pointer;
-      font-size: 14px;
+      font-size: 16px;
       transition: all 0.3s ease;
-      backdrop-filter: blur(5px); // 毛玻璃效果
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-      //z-index: 1000;
+      pointer-events: auto; // 确保按钮可以被点击
       
       &:hover {
-        background-color: rgba(0, 0, 0, 0.8);
-        transform: translateY(-2px);
-        }
+        background-color: rgba(255, 255, 255, 0.3);
+      }
       
       &:active {
-        transform: translateY(0);
-        }
-      
-      @media (max-width: 768px) {
-        bottom: 20px;
-        right: 20px;
-        font-size: 12px;
-        padding: 8px 16px;
-        }
-    
-      @media (min-width: 1200px) {
-        bottom: calc(10% + 20px);
-        right: calc(10% + 20px);
-        }
+        transform: scale(0.95);
+      }
       }
   
   }
