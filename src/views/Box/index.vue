@@ -42,6 +42,7 @@ const closeShow = ref(false);
 .box {
   flex: 1 0 0%;
   margin-left: 0.75rem;
+  margin-right: 0.75rem;
   height: 80%;
   max-width: 50%;
   position: relative;
