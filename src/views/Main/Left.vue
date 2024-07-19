@@ -42,7 +42,7 @@ const closeFloatingWindow = () => {
 <style lang="scss" scoped>
 .left {
   width: 50%;
-  margin-right: 1.25rem;
+  margin-left: 1.25rem;
   transform: translateY(20px);
   &.hidden {
     display: none;
