@@ -21,8 +21,8 @@
 
         <section class="all" v-show="!store.setOpenState">
           <MainRight v-show="!store.boxOpenState" />
-          <MainLeft  />
           <Box v-show="store.boxOpenState" />
+          <MainLeft  />
         </section>
         <section class="more" v-show="store.setOpenState" @click="store.setOpenState = false">
           <MoreSet />
