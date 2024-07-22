@@ -89,7 +89,7 @@ const openFloatingWindow = () => {
   if (inputUrl.value) {
       floatingWindowUrl.value = ensureHttps(inputUrl.value);
     } else {
-      floatingWindowUrl.value = 'https://pcd.chunzha.tech/shot-game/shooter';
+      floatingWindowUrl.value = 'https://s3-us-west-1.amazonaws.com/vocs/map.html#';
     }
     showFloatingWindow.value = true;
   };
