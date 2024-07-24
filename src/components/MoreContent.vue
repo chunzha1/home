@@ -1,8 +1,8 @@
 <template>
   <div class="more-content">Aber Freund! wir kommen zu spät. Zwar leben die Götter,<br>Aber über dem Haupt droben in anderer Welt.
     <br>Weiß ich nicht und wozu Dichter in dürftiger Zeit?<br>
-    <style="text-align: right;">Friedrich Hölderlin —— Brot und Wein 7</>
-</div>
+    <p style="text-align: right; font-weight: bold;">Friedrich Hölderlin —— Brot und Wein 7</p>
+  </div>
 </template>
 
 <style lang="scss" scoped>
