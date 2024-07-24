@@ -18,7 +18,7 @@ Brot und Wein 7</div>
   width: 100%;
   height: 100%;
   font-family: "Pacifico-Regular";
-  font-size: 24px; // 可选：设置字体大小
+  font-size: 12px; // 可选：设置字体大小
   font-weight: normal; // 可选：设置字体粗细
 }
 </style>
