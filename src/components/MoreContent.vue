@@ -1,12 +1,9 @@
 <template>
-  <div class="more-content">Aber Freund! wir kommen zu spät. Zwar leben die Götter,<br>
-Aber über dem Haupt droben in anderer Welt.<br>
+  <div class="more-content">Aber Freund! wir kommen zu spät. Zwar leben die Götter,Aber über dem Haupt droben in anderer Welt.<br>
 <br>
 Weiß ich nicht und wozu Dichter in dürftiger Zeit?<br>
 <br>
-Friedrich Hölderlin<br>
-
-Brot und Wein 7</div>
+Friedrich Hölderlin——<Brot und Wein> 7</div>
 </template>
 
 <style lang="scss" scoped>
@@ -14,11 +11,11 @@ Brot und Wein 7</div>
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 12;
   width: 100%;
   height: 100%;
   font-family: "Pacifico-Regular";
-  font-size: 12px; // 可选：设置字体大小
+  font-size: 14px; // 可选：设置字体大小
   font-weight: normal; // 可选：设置字体粗细
 }
 </style>
