@@ -326,7 +326,7 @@ onBeforeUnmount(() => {
       }
     }
     .f-ter {
-      top: 675px; // 721px - 46px
+      top: 721px; // 721px - 46px
       @media (min-width: 391px) {
         padding-left: 6px;
       }
