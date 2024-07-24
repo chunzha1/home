@@ -1,5 +1,12 @@
 <template>
-  <div class="more-content">I can write something I want here.</div>
+  <div class="more-content">Aber Freund! wir kommen zu spät. Zwar leben die Götter,<br>
+Aber über dem Haupt droben in anderer Welt.<br>
+<br>
+Weiß ich nicht und wozu Dichter in dürftiger Zeit?<br>
+<br>
+Friedrich Hölderlin<br>
+
+Brot und Wein 7</div>
 </template>
 
 <style lang="scss" scoped>
