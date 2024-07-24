@@ -1,6 +1,7 @@
 <template>
-  <div class="more-content">Aber Freund! wir kommen zu spät. Zwar leben die Götter,Aber über dem Haupt droben in anderer Welt.
-    <br>Weiß ich nicht und wozu Dichter in dürftiger Zeit?<br><br>
+  <div class="more-content">Aber Freund! wir kommen zu spät. Zwar leben die Götter,<br>Aber über dem Haupt droben in anderer Welt.
+    <br>Weiß ich nicht und wozu Dichter in dürftiger Zeit?<br>
+    <div style="text-align: right;">Friedrich Hölderlin —— Brot und Wein 7</div>
 Friedrich Hölderlin —— Brot und Wein 7</div>
 </template>
 
