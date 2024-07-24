@@ -43,7 +43,7 @@
 <script setup>
 import { Icon } from "@vicons/utils";
 // 可前往 https://www.xicons.org 自行挑选并在此处引入
-import { Link, Blog, CompactDisc, CommentDotsRegular, Cloud, Compass, Book, Fire, LaptopCode,FileContract,EnvelopeOpenText,Paste, Burn, Download, Highlighter, Magic, Marker, NetworkWired } from "@vicons/fa"; // 注意使用正确的类别
+import { Link, Blog, CompactDisc, CommentDotsRegular,Palette, Cloud, Compass, Book, Fire, LaptopCode,FileContract,EnvelopeOpenText,Paste, Burn, Download, Highlighter, Magic, Marker, NetworkWired } from "@vicons/fa"; // 注意使用正确的类别
 import { mainStore } from "@/store";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Pagination, Mousewheel } from "swiper/modules";
@@ -80,6 +80,7 @@ const siteIcon = {
   Marker,
   NetworkWired,
   CommentDotsRegular,
+  Palette,
 };
 
 // 链接跳转
