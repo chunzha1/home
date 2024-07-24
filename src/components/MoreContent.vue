@@ -1,26 +1,28 @@
 <template>
-  <div class="more-content" style="display: flex; justify-content: space-between; align-items: flex-end;">
-    <div>
-      Aber Freund! wir kommen zu spät. Zwar leben die Götter,<br>
-      Aber über dem Haupt droben in anderer Welt.<br>
-      Weiß ich nicht und wozu Dichter in dürftiger Zeit?<br>
-    </div>
-    <div style="text-align: right; white-space: nowrap;">
-      <p style="font-weight: normal; margin: 0;">Friedrich Hölderlin —— Brot und Wein 7</p>
-    </div>
+  <div class="more-content">
+    Aber Freund! wir kommen zu spät. Zwar leben die Götter,<br>
+    Aber über dem Haupt droben in anderer Welt.<br>
+    Weiß ich nicht und wozu Dichter in dürftiger Zeit?<br>
+    <span class="author-info">Friedrich Hölderlin —— Brot und<br>Wein 7</span>
   </div>
 </template>
 
 <style lang="scss" scoped>
 .more-content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 12px;
+  position: relative;
   width: 100%;
-  height: 100%;
   font-family: "Pacifico-Regular";
-  font-size: 14px; // 可选：设置字体大小
-  font-weight: normal; // 可选：设置字体粗细
-}
+  font-size: 14px;
+  font-weight: normal;
+  margin-top: 12px;
+  padding-bottom: 1.5em; // 为作者信息留出空间
+
+  .author-info {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    text-align: right;
+    font-weight: bold;
+    white-space: nowrap;
+  }
 </style>
