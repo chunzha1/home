@@ -53,5 +53,35 @@
     "icon": "Blog",
     "name": "Blog",
     "link": "http://ip.chunzha.tech:7070/blog"
+  },
+  {
+    "icon": "Blog",
+    "name": "Burn Note",
+    "link": "https://burn.chunzha.tech/"
+  },
+  {
+    "icon": "Blog",
+    "name": "Youtube Download",
+    "link": "https://yt.chunzha.tech/"
+  },
+  {
+    "icon": "Blog",
+    "name": "White Board",
+    "link": "https://wb.chunzha.tech/"
+  },
+  {
+    "icon": "Blog",
+    "name": "Mark Down",
+    "link": "https://novel.chunzha.tech/"
+  },
+  {
+    "icon": "Blog",
+    "name": "Short Link",
+    "link": "https://short.chunzha.tech/chunzha"
+  },
+  {
+    "icon": "Blog",
+    "name": "One API",
+    "link": "https://api.chunzha.tech/"
   }
 ]
