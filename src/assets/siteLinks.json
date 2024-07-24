@@ -1,11 +1,11 @@
 [
   {
-    "icon": "Blog",
+    "icon": "EnvelopeOpenText",
     "name": "Record",
     "link": "https://rec.chunzha.tech/"
   },
   {
-    "icon": "Cloud",
+    "icon": "Paste",
     "name": "Paste Bin",
     "link": "https://paste.chunzha.tech/"
   },
@@ -43,5 +43,15 @@
     "icon": "FileContract",
     "name": "Pairdrop",
     "link": "http://ip.chunzha.tech:8105/"
+  },
+  {
+    "icon": "Cloud",
+    "name": "Cloud",
+    "link": "http://ip.chunzha.tech:7070/"
+  },
+  {
+    "icon": "Record",
+    "name": "Blog",
+    "link": "http://ip.chunzha.tech:7070/blog"
   }
 ]
