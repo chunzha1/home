@@ -20,7 +20,7 @@
     "link": "https://nav.imsyy.top/"
   },
   {
-    "icon": "Book",
+    "icon": "CommentDotsRegular",
     "name": "Next Chat",
     "link": "https://chat.chunzha.tech/"
   },
@@ -35,7 +35,7 @@
     "link": "https://status.imsyy.top/"
   },
   {
-    "icon": "Fire",
+    "icon": "Magic",
     "name": "Lobe Chat",
     "link": "https://lobechat.chunzha.tech/"
   },
@@ -55,32 +55,32 @@
     "link": "http://ip.chunzha.tech:7070/blog"
   },
   {
-    "icon": "Blog",
+    "icon": "Burn",
     "name": "Burn Note",
     "link": "https://burn.chunzha.tech/"
   },
   {
-    "icon": "Blog",
-    "name": "Youtube Download",
+    "icon": "Download",
+    "name": "YT Download",
     "link": "https://yt.chunzha.tech/"
   },
   {
-    "icon": "Blog",
+    "icon": "Palette",
     "name": "White Board",
     "link": "https://wb.chunzha.tech/"
   },
   {
-    "icon": "Blog",
+    "icon": "Marker",
     "name": "Mark Down",
     "link": "https://novel.chunzha.tech/"
   },
   {
-    "icon": "Blog",
+    "icon": "Paperclip",
     "name": "Short Link",
     "link": "https://short.chunzha.tech/chunzha"
   },
   {
-    "icon": "Blog",
+    "icon": "NetworkWired",
     "name": "One API",
     "link": "https://api.chunzha.tech/"
   }
