@@ -1,8 +1,6 @@
 <template>
   <div class="more-content" style="display: flex; justify-content: space-between; align-items: flex-end;">
     <div>
-      Aber Freund! wir kommen zu spät. Zwar leben die Götter,<br>
-      Aber über dem Haupt droben in anderer Welt.<br>
       Weiß ich nicht und wozu Dichter in dürftiger Zeit?<br>
       Friedrich Hölderlin —— Brot und Wein 7
     </div>
@@ -18,7 +16,7 @@
   width: 100%;
   height: 100%;
   font-family: "Pacifico-Regular";
-  font-size: 14px; // 可选：设置字体大小
+  font-size: 18px; // 可选：设置字体大小
   font-weight: normal; // 可选：设置字体粗细
 }
 </style>
