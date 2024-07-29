@@ -20,10 +20,6 @@
         下载壁纸
       </a>
     </Transition>
-  
-    <!-- 添加 canvas 元素 -->
-    <canvas ref="fireworksCanvas" class="fireworks-canvas"></canvas>
-
   </div>
 </template>
 
@@ -100,85 +96,6 @@ onBeforeUnmount(() => {
   clearTimeout(imgTimeout.value);
 });
 
-// 烟花相关
-const fireworksCanvas = ref(null);
-let ctx;
-let particles = [];
-let animationFrame;
-
-// Particle 类定义
-class Particle {
-  constructor(x, y, color) {
-    this.x = x;
-    this.y = y;
-    this.color = color;
-    this.radius = Math.random() * 2 + 1;
-    this.velocity = {
-      x: Math.random() * 6 - 3,
-      y: Math.random() * 6 - 3
-    };
-    this.life = 100;
-  }
-
-  draw() {
-    ctx.beginPath();
-    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-    ctx.fillStyle = this.color;
-    ctx.fill();
-  }
-
-  update() {
-    this.x += this.velocity.x;
-    this.y += this.velocity.y;
-    this.life--;
-    this.velocity.y += 0.05; // 重力效果
-    this.draw();
-  }
-}
-
-function createFirework(x, y) {
-  const colors = ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff', '#00ffff'];
-  for (let i = 0; i < 100; i++) {
-    const color = colors[Math.floor(Math.random() * colors.length)];
-    particles.push(new Particle(x, y, color));
-  }
-}
-
-function animate() {
-  ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
-  ctx.fillRect(0, 0, fireworksCanvas.value.width, fireworksCanvas.value.height);
-
-  particles = particles.filter(particle => particle.life > 0);
-  particles.forEach(particle => particle.update());
-
-  animationFrame = requestAnimationFrame(animate);
-}
-
-onMounted(() => {
-  // 现有的 onMounted 代码
-
-  // 设置 canvas
-  const canvas = fireworksCanvas.value;
-  ctx = canvas.getContext('2d');
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-
-  // 添加点击事件监听器
-  canvas.addEventListener('click', (e) => {
-    createFirework(e.clientX, e.clientY);
-  });
-
-  // 开始动画
-  animate();
-});
-
-onBeforeUnmount(() => {
-  // 现有的 onBeforeUnmount 代码
-
-  // 清除动画帧
-  cancelAnimationFrame(animationFrame);
-});
-  
 </script>
 
 <style lang="scss" scoped>
@@ -250,15 +167,6 @@ onBeforeUnmount(() => {
     &:active {
       transform: scale(1);
     }
-  }
-  
-  .fireworks-canvas {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none; // 允许点击穿透到下层元素
   }
 }
 </style>
