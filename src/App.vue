@@ -84,14 +84,7 @@ const handleMouseDown = (event) => {
       message: `已${store.backgroundShow ? "开启" : "退出"}壁纸展示状态`,
       grouping: true,
     });
-  } else if (event.button === 0) { // 0 左键且背景显示
-    fireworksRef.value?.createFirework(event.clientX, event.clientY);
-  }
-};
-
-const handleContextMenu = (event) => {
-  event.preventDefault(); // 阻止默认的右键菜单
-  if (store.backgroundShow) { // 确保背景显示时才触发烟花
+  } else if (event.button === 2) { // 0 左键且背景显示
     fireworksRef.value?.createFirework(event.clientX, event.clientY);
   }
 };
@@ -370,16 +363,5 @@ onUnmounted(() => {
   }
 
 }
-  .firework {
-  position: absolute;
-  pointer-events: none;
-}
 
-.particle {
-  position: absolute;
-  width: 5px;
-  height: 5px;
-  background: #ff6b6b;
-  border-radius: 50%;
-}
 </style>
