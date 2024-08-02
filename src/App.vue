@@ -49,10 +49,9 @@
         @close="closeFloatingWindow"
         :url="floatingWindowUrl"
       />
-      
+    </main>
       <!-- 添加烟花组件 -->
       <Fireworks ref="fireworksRef" />
-    </main>
   </Transition>
 
 
