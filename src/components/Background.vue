@@ -177,7 +177,6 @@ onBeforeUnmount(() => {
   // 移除点击事件监听器
   fireworksCanvas.value.removeEventListener('click', handleClick);
 });
-});
 
 </script>
 
