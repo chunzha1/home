@@ -53,7 +53,9 @@
     </main>
   </Transition>
 
-  
+  <!-- 添加烟花组件 -->
+  <Fireworks ref="fireworksRef" />
+
 </template>
 
 <script setup>
@@ -71,9 +73,26 @@ import MoreSet from "@/views/MoreSet/index.vue";
 import cursorInit from "@/utils/cursor.js";
 import config from "@/../package.json";
 import FloatingWindow from '@/components/FloatingWindow.vue';
-  
+import Fireworks from '@/components/Fireworks.vue';
+
 const store = mainStore();
- // FloatWindows
+  
+//fireworks
+const fireworksRef = ref(null);
+
+const handleMouseDown = (event) => {
+  if (event.button === 1) { // 中键
+    store.backgroundShow = !store.backgroundShow;
+    ElMessage({
+      message: `已${store.backgroundShow ? "开启" : "退出"}壁纸展示状态`,
+      grouping: true,
+    });
+  } else if (event.button === 0 && store.backgroundShow) { // 左键且背景显示
+    fireworksRef.value?.createFirework(event.clientX, event.clientY);
+  }
+};
+  
+// FloatWindows
 const showFloatingWindow = ref(false);
 const floatingWindowUrl = ref('https://pcd.chunzha.tech/shot-game/shooter');
 const inputUrl = ref('');
@@ -137,16 +156,9 @@ onMounted(() => {
     return false;
   };
 
-  // 鼠标中键事件
-  window.addEventListener("mousedown", (event) => {
-    if (event.button == 1) {
-      store.backgroundShow = !store.backgroundShow;
-      ElMessage({
-        message: `已${store.backgroundShow ? "开启" : "退出"}壁纸展示状态`,
-        grouping: true,
-      });
-    }
-  });
+  //fireworks
+  window.addEventListener("mousedown", handleMouseDown);
+  fireworksRef.value?.animate(); // 开始动画循环
 
   // 监听当前页面宽度
   getWidth();
@@ -172,6 +184,11 @@ onMounted(() => {
 onBeforeUnmount(() => {
   window.removeEventListener("resize", getWidth);
 });
+  
+onUnmounted(() => {
+  window.removeEventListener("mousedown", handleMouseDown);
+  });
+  
 </script>
 
 <style lang="scss" scoped>
