@@ -370,4 +370,16 @@ onUnmounted(() => {
   }
 
 }
+  .firework {
+  position: absolute;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background: #ff6b6b;
+  border-radius: 50%;
+}
 </style>
