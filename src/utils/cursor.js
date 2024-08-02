@@ -77,11 +77,6 @@ class Cursor {
     document.onmouseleave = () => this.cursor.classList.add("hidden");
     document.onmousedown = () => this.cursor.classList.add("active");
     document.onmouseup = () => this.cursor.classList.remove("active");
-    //fireworks
-    document.oncontextmenu = (e) => {
-    e.preventDefault();
-    this.createFirework(e.clientX, e.clientY);
-  };
   }
 
   render() {
@@ -95,41 +90,6 @@ class Cursor {
     requestAnimationFrame(() => this.render());
   }
 
-  //fireworks
-  createFirework(x, y) {
-    const firework = document.createElement('div');
-    firework.className = 'firework';
-    firework.style.left = `${x}px`;
-    firework.style.top = `${y}px`;
-    document.body.appendChild(firework);
-
-    const particleCount = 30;
-    const animationDuration = 1000;
-
-    for (let i = 0; i < particleCount; i++) {
-      const particle = document.createElement('div');
-      particle.className = 'particle';
-      const angle = Math.random() * Math.PI * 2;
-      const speed = Math.random() * 3 + 1;
-      particle.style.transform = `rotate(${angle}rad)`;
-      firework.appendChild(particle);
-
-      const animation = particle.animate([
-        { transform: `rotate(${angle}rad) translate(0, 0) scale(1)` },
-        { transform: `rotate(${angle}rad) translate(${Math.cos(angle) * 100}px, ${Math.sin(angle) * 100}px) scale(0)` }
-      ], {
-        duration: animationDuration,
-        easing: 'cubic-bezier(0.22, 0.61, 0.36, 1)'
-      });
-
-      animation.onfinish = () => {
-        particle.remove();
-        if (firework.children.length === 0) {
-          firework.remove();
-        }
-      };
-    }
-  }
 }
 
 export default cursorInit;
