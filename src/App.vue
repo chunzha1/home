@@ -84,7 +84,7 @@ const handleMouseDown = (event) => {
       message: `已${store.backgroundShow ? "开启" : "退出"}壁纸展示状态`,
       grouping: true,
     });
-  } else if (event.button === 2) { // 0 左键且背景显示
+  } else if (event.button === 0) { // 0 左键且背景显示
     fireworksRef.value?.createFirework(event.clientX, event.clientY);
   }
 };
