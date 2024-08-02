@@ -58,6 +58,7 @@ const descriptionText = reactive({
 
 // 切换右侧功能区
 const changeBox = () => {
+  console.log('Current inner width:', store.innerWidth);
   if (store.getInnerWidth >= 721) {
     store.boxOpenState = !store.boxOpenState;
   } else {
