@@ -108,6 +108,6 @@ defineExpose({ createFirework, animate });
   top: 0;
   left: 0;
   pointer-events: none;
-  z-index: 9999;
+  z-index: 2;
 }
 </style>
