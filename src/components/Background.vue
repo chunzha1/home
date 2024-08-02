@@ -20,6 +20,10 @@
         下载壁纸
       </a>
     </Transition>
+    
+    <!-- 其他现有元素 -->
+    <canvas ref="fireworksCanvas" class="fireworks-canvas"></canvas>
+
   </div>
 </template>
 
@@ -79,6 +83,72 @@ const imgLoadError = () => {
   bgUrl.value = `/images/background${bgRandom}.jpg`;
 };
 
+// ... 其他导入和现有代码 ...
+const fireworksCanvas = ref(null);
+let fireworks = [];
+let ctx;
+
+// 烟花粒子类
+class Particle {
+  constructor(x, y, color) {
+    this.x = x;
+    this.y = y;
+    this.color = color;
+    this.radius = Math.random() * 2 + 1;
+    this.velocity = {
+      x: Math.random() * 6 - 3,
+      y: Math.random() * 6 - 3
+    };
+    this.life = 60;
+  }
+
+  draw() {
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+    ctx.fillStyle = this.color;
+    ctx.fill();
+  }
+
+  update() {
+    this.x += this.velocity.x;
+    this.y += this.velocity.y;
+    this.life--;
+    this.draw();
+  }
+}
+
+// 创建烟花
+function createFirework(x, y) {
+  const color = `hsl(${Math.random() * 360}, 50%, 50%)`;
+  for (let i = 0; i < 50; i++) {
+    fireworks.push(new Particle(x, y, color));
+  }
+}
+
+// 动画循环
+function animate() {
+  ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
+  ctx.fillRect(0, 0, fireworksCanvas.value.width, fireworksCanvas.value.height);
+
+  fireworks.forEach((particle, index) => {
+    if (particle.life <= 0) {
+      fireworks.splice(index, 1);
+    } else {
+      particle.update();
+    }
+  });
+
+  requestAnimationFrame(animate);
+}
+
+// 点击事件处理
+function handleClick(event) {
+  const rect = fireworksCanvas.value.getBoundingClientRect();
+  const x = event.clientX - rect.left;
+  const y = event.clientY - rect.top;
+  createFirework(x, y);
+}
+  
 // 监听壁纸切换
 watch(
   () => store.coverType,
@@ -90,10 +160,23 @@ watch(
 onMounted(() => {
   // 加载壁纸
   changeBg(store.coverType);
+    // 设置 canvas
+  fireworksCanvas.value.width = window.innerWidth;
+  fireworksCanvas.value.height = window.innerHeight;
+  ctx = fireworksCanvas.value.getContext('2d');
+
+  // 添加点击事件监听器
+  fireworksCanvas.value.addEventListener('click', handleClick);
+
+  // 开始动画
+  animate();
 });
 
 onBeforeUnmount(() => {
   clearTimeout(imgTimeout.value);
+  // 移除点击事件监听器
+  fireworksCanvas.value.removeEventListener('click', handleClick);
+});
 });
 
 </script>
@@ -167,6 +250,15 @@ onBeforeUnmount(() => {
     &:active {
       transform: scale(1);
     }
+  }
+    .fireworks-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 2;
   }
 }
 </style>
