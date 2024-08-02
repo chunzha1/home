@@ -50,11 +50,9 @@
         :url="floatingWindowUrl"
       />
     </main>
+  </Transition>
       <!-- 添加烟花组件 -->
       <Fireworks ref="fireworksRef" />
-  </Transition>
-
-
 </template>
 
 <script setup>
