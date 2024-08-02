@@ -9,19 +9,21 @@ const canvas = ref(null);
 let ctx;
 let fireworks = [];
 let particles = [];
+let animationId;
 
 onMounted(() => {
   ctx = canvas.value.getContext('2d');
-  canvas.value.width = window.innerWidth;
-  canvas.value.height = window.innerHeight;
-  window.addEventListener('resize', handleResize);
+  resizeCanvas();
+  window.addEventListener('resize', resizeCanvas);
+  animate();
 });
 
 onUnmounted(() => {
-  window.removeEventListener('resize', handleResize);
+  window.removeEventListener('resize', resizeCanvas);
+  cancelAnimationFrame(animationId);
 });
 
-const handleResize = () => {
+const resizeCanvas = () => {
   canvas.value.width = window.innerWidth;
   canvas.value.height = window.innerHeight;
 };
@@ -58,9 +60,13 @@ const createFirework = (x, y) => {
 };
 
 const animate = () => {
-  requestAnimationFrame(animate);
+  animationId = requestAnimationFrame(animate);
+  
+  // 使用 globalCompositeOperation 来创建淡出效果
+  ctx.globalCompositeOperation = 'destination-out';
   ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
   ctx.fillRect(0, 0, canvas.value.width, canvas.value.height);
+  ctx.globalCompositeOperation = 'lighter';
 
   // Update and draw fireworks
   for (let i = fireworks.length - 1; i >= 0; i--) {
@@ -99,7 +105,7 @@ const animate = () => {
   }
 };
 
-defineExpose({ createFirework, animate });
+defineExpose({ createFirework });
 </script>
 
 <style scoped>
@@ -108,6 +114,6 @@ defineExpose({ createFirework, animate });
   top: 0;
   left: 0;
   pointer-events: none;
-  z-index: 2;
+  z-index: 1000; /* 确保烟花在最上层 */
 }
 </style>
