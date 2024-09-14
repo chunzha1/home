@@ -12,7 +12,7 @@
   {
     "icon": "CompactDisc",
     "name": "Music",
-    "link": "http://ip.chunzha.tech:13000/"
+    "link": "https://mstream.mzh.li/"
   },
   {
     "icon": "Compass",
@@ -42,17 +42,17 @@
   {
     "icon": "Rainbow",
     "name": "Pairdrop",
-    "link": "http://ip.chunzha.tech:8105/"
+    "link": "https://air.mzh.li/"
   },
   {
     "icon": "Cloud",
     "name": "Cloud",
-    "link": "http://ip.chunzha.tech:7070/"
+    "link": "https://cloud.mzh.li/"
   },
   {
     "icon": "Blog",
     "name": "Blog",
-    "link": "http://ip.chunzha.tech:7070/blog"
+    "link": "https://cloud.mzh.li/blog"
   },
   {
     "icon": "Burn",
