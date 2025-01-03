@@ -1,29 +1,6 @@
 <template>
   <footer id="footer" :class="store.footerBlur ? 'blur' : null">
     <Transition name="fade" mode="out-in">
-      <!-- new 灯笼1 -->
-        <div class="deng-box">
-            <div class="deng">
-                <div class="xian"></div>
-                <div class="deng-a">
-                    <div class="deng-b"><div class="deng-t">年</div></div>
-                </div>
-                <div class="shui shui-a"><div class="shui-c"></div><div class="shui-b"></div></div>
-            </div>
-        </div>
-         
-        <!-- 灯笼2 -->
-        <div class="deng-box1">
-            <div class="deng">
-                <div class="xian"></div>
-                <div class="deng-a">
-                    <div class="deng-b"><div class="deng-t">新</div></div>
-                </div>
-                <div class="shui shui-a"><div class="shui-c"></div><div class="shui-b"></div></div>
-            </div>
-        </div>
-        <!-- above灯笼2 -->
-
       <div v-if="!store.playerState || !store.playerLrcShow" class="power">
         <span>
           <span :class="startYear < fullYear ? 'c-hidden' : 'hidden'">Copyright&nbsp;</span>
@@ -65,17 +42,6 @@
 </template>
 
 <script setup>
-  //new
-export default {
-created() {
-  // 引入外部CSS文件
-  const link = document.createElement("link");
-  link.rel = "stylesheet";
-  link.href = "https://cdn.jsdmirror.com/gh/muzihuaner/deng@main/deng.css";
-  document.head.appendChild(link);
-}
-};
-  //above
 import { MusicOne } from "@icon-park/vue-next";
 import { mainStore } from "@/store";
 import config from "@/../package.json";
