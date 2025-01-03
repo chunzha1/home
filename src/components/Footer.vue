@@ -4,7 +4,7 @@
     <div class="deng">
       <div class="xian"></div>
       <div class="deng-a">
-        <div class="deng-b"><div class="deng-t">年</div></div>
+        <div class="deng-b"><div class="deng-t">新年</div></div>
       </div>
       <div class="shui shui-a">
         <div class="shui-c"></div>
@@ -18,7 +18,7 @@
     <div class="deng">
       <div class="xian"></div>
       <div class="deng-a">
-        <div class="deng-b"><div class="deng-t">新</div></div>
+        <div class="deng-b"><div class="deng-t">年</div></div>
       </div>
       <div class="shui shui-a">
         <div class="shui-c"></div>
